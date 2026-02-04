@@ -1,5 +1,5 @@
 # Image URL to use all building/pushing image targets
-IMG ?= fluxcd/helm-controller:latest
+IMG ?= registry.werf.io/nelm/helm-controller:latest
 # Produce CRDs that work back to Kubernetes 1.16
 CRD_OPTIONS ?= crd:crdVersions=v1
 
@@ -203,7 +203,7 @@ fuzz-build:
 	docker build . --pull --tag local-fuzzing:latest -f tests/fuzz/Dockerfile.builder
 	docker run --rm \
 		-e FUZZING_LANGUAGE=go -e SANITIZER=address \
-		-e CIFUZZ_DEBUG='True' -e OSS_FUZZ_PROJECT_NAME=fluxcd \
+		-e CIFUZZ_DEBUG='True' -e OSS_FUZZ_PROJECT_NAME=nelm \
 		-v "$(shell go env GOMODCACHE):/root/go/pkg/mod" \
 		-v "$(BUILD_DIR)/fuzz/out":/out \
 		local-fuzzing:latest
