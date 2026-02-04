@@ -34,7 +34,7 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 	"k8s.io/cli-runtime/pkg/resource"
 
-	v2 "github.com/fluxcd/helm-controller/api/v2"
+	v2 "github.com/werf/3p-helm-controller/api/v2"
 )
 
 const (

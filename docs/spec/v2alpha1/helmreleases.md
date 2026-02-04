@@ -537,7 +537,7 @@ to create a new `HelmChart` resource with the given spec.
 
 The `spec.chart.spec.sourceRef` is a reference to an object managed by
 [source-controller](https://github.com/fluxcd/source-controller). When the source
-[revision](https://github.com/fluxcd/source-controller/blob/main/docs/spec/v1alpha1/common.md#source-status) 
+[revision](https://github.com/fluxcd/source-controller/blob/main/docs/spec/v1alpha1/common.md#source-status)
 changes, it generates a Kubernetes event that triggers a new release.
 
 Supported source types:
@@ -638,8 +638,8 @@ To list all Kubernetes objects reconciled from a HelmRelease:
 
 ```sh
 kubectl get all --all-namespaces \
-  -l=helm.toolkit.fluxcd.io/name="<HelmRelease name>" \
-  -l=helm.toolkit.fluxcd.io/namespace="<HelmRelease namespace>"
+  -l=helm.werf.io/name="<HelmRelease name>" \
+  -l=helm.werf.io/namespace="<HelmRelease namespace>"
 ```
 
 ### Disabling resource waiting
@@ -660,7 +660,7 @@ Assuming two `HelmRelease` resources:
 - `frontend` - contains the frontend of the application and relies on the backend
 
 ```yaml
-apiVersion: helm.toolkit.fluxcd.io/v2alpha1
+apiVersion: helm.werf.io/v2alpha1
 kind: HelmRelease
 metadata:
   name: backend
@@ -687,7 +687,7 @@ spec:
         cpu: 100m
         memory: 64Mi
 ---
-apiVersion: helm.toolkit.fluxcd.io/v2alpha1
+apiVersion: helm.werf.io/v2alpha1
 kind: HelmRelease
 metadata:
   name: frontend
@@ -735,7 +735,7 @@ can be overridden per Helm action by setting `spec.install.remediation.ignoreTes
 or `spec.upgrade.remediation.ignoreTestFailures`.
 
 ```yaml
-apiVersion: helm.toolkit.fluxcd.io/v2alpha1
+apiVersion: helm.werf.io/v2alpha1
 kind: HelmRelease
 metadata:
   name: podinfo
@@ -778,7 +778,7 @@ One can also opt-in to remediation of the last failure (when no retries remain) 
 to true if at least one retry is configured.
 
 ```yaml
-apiVersion: helm.fluxcd.io/v2alpha1
+apiVersion: helm.werf.io/v2alpha1
 kind: HelmRelease
 metadata:
  name: podinfo

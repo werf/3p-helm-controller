@@ -19,5 +19,5 @@ limitations under the License.
 // Deprecated: v2beta1 is no longer supported, use v2 instead.
 //
 // +kubebuilder:object:generate=true
-// +groupName=helm.toolkit.fluxcd.io
+// +groupName=helm.werf.io
 package v2beta1

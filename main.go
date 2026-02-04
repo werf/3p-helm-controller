@@ -49,18 +49,18 @@ import (
 	"github.com/fluxcd/pkg/runtime/metrics"
 	"github.com/fluxcd/pkg/runtime/pprof"
 	"github.com/fluxcd/pkg/runtime/probes"
-	sourcev1 "github.com/fluxcd/source-controller/api/v1"
+	sourcev1 "github.com/werf/nelm-source-controller/api/v1"
 
-	v2 "github.com/fluxcd/helm-controller/api/v2"
-	intdigest "github.com/fluxcd/helm-controller/internal/digest"
+	v2 "github.com/werf/3p-helm-controller/api/v2"
+	intdigest "github.com/werf/3p-helm-controller/internal/digest"
 
 	// +kubebuilder:scaffold:imports
 
-	intacl "github.com/fluxcd/helm-controller/internal/acl"
-	"github.com/fluxcd/helm-controller/internal/controller"
-	"github.com/fluxcd/helm-controller/internal/features"
-	intkube "github.com/fluxcd/helm-controller/internal/kube"
-	"github.com/fluxcd/helm-controller/internal/oomwatch"
+	intacl "github.com/werf/3p-helm-controller/internal/acl"
+	"github.com/werf/3p-helm-controller/internal/controller"
+	"github.com/werf/3p-helm-controller/internal/features"
+	intkube "github.com/werf/3p-helm-controller/internal/kube"
+	"github.com/werf/3p-helm-controller/internal/oomwatch"
 )
 
 const controllerName = "helm-controller"

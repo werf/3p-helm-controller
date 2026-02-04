@@ -23,7 +23,7 @@ import (
 	"k8s.io/apimachinery/pkg/types"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 
-	v2 "github.com/fluxcd/helm-controller/api/v2"
+	v2 "github.com/werf/3p-helm-controller/api/v2"
 )
 
 func TestAllowsAccessTo(t *testing.T) {

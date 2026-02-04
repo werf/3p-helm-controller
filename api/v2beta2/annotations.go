@@ -23,13 +23,13 @@ const (
 	// Helm release, even when there are no new changes in the HelmRelease.
 	// The value is interpreted as a token, and must equal the value of
 	// meta.ReconcileRequestAnnotation in order to trigger a release.
-	ForceRequestAnnotation string = "reconcile.fluxcd.io/forceAt"
+	ForceRequestAnnotation string = "reconcile.werf.io/forceAt"
 
 	// ResetRequestAnnotation is the annotation used for resetting the failure counts
 	// of a HelmRelease, so that it can be retried again.
 	// The value is interpreted as a token, and must equal the value of
 	// meta.ReconcileRequestAnnotation in order to reset the failure counts.
-	ResetRequestAnnotation string = "reconcile.fluxcd.io/resetAt"
+	ResetRequestAnnotation string = "reconcile.werf.io/resetAt"
 )
 
 // ShouldHandleResetRequest returns true if the HelmRelease has a reset request

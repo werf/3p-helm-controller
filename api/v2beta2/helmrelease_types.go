@@ -28,7 +28,7 @@ import (
 	"github.com/fluxcd/pkg/apis/kustomize"
 	"github.com/fluxcd/pkg/apis/meta"
 
-	v2 "github.com/fluxcd/helm-controller/api/v2"
+	v2 "github.com/werf/3p-helm-controller/api/v2"
 )
 
 const (
@@ -36,7 +36,7 @@ const (
 	HelmReleaseKind = "HelmRelease"
 	// HelmReleaseFinalizer is set on a HelmRelease when it is first handled by
 	// the controller, and removed when this object is deleted.
-	HelmReleaseFinalizer = "finalizers.fluxcd.io"
+	HelmReleaseFinalizer = "finalizers.werf.io"
 )
 
 const (

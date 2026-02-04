@@ -22,7 +22,7 @@ import (
 
 	. "github.com/onsi/gomega"
 
-	v2 "github.com/fluxcd/helm-controller/api/v2"
+	v2 "github.com/werf/3p-helm-controller/api/v2"
 )
 
 const mixedResourceMock = `apiVersion: v1
@@ -52,8 +52,8 @@ func Test_OriginLabels_Run(t *testing.T) {
 kind: Pod
 metadata:
   labels:
-    helm.toolkit.fluxcd.io/name: name
-    helm.toolkit.fluxcd.io/namespace: namespace
+    helm.werf.io/name: name
+    helm.werf.io/namespace: namespace
   name: pod-without-labels
 ---
 apiVersion: v1
@@ -61,8 +61,8 @@ kind: Service
 metadata:
   labels:
     existing: label
-    helm.toolkit.fluxcd.io/name: name
-    helm.toolkit.fluxcd.io/namespace: namespace
+    helm.werf.io/name: name
+    helm.werf.io/namespace: namespace
   name: service-with-labels
 `,
 		},
@@ -71,7 +71,7 @@ metadata:
 		t.Run(tt.name, func(t *testing.T) {
 			g := NewWithT(t)
 
-			k := NewOriginLabels("helm.toolkit.fluxcd.io", "namespace", "name")
+			k := NewOriginLabels("helm.werf.io", "namespace", "name")
 			gotModifiedManifests, err := k.Run(bytes.NewBufferString(tt.renderedManifests))
 			if tt.expectErr {
 				g.Expect(err).To(HaveOccurred())

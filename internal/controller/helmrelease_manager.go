@@ -21,7 +21,7 @@ import (
 	"fmt"
 
 	"github.com/fluxcd/pkg/runtime/predicates"
-	sourcev1 "github.com/fluxcd/source-controller/api/v1"
+	sourcev1 "github.com/werf/nelm-source-controller/api/v1"
 	corev1 "k8s.io/api/core/v1"
 	"k8s.io/client-go/util/workqueue"
 	ctrl "sigs.k8s.io/controller-runtime"
@@ -32,8 +32,8 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/predicate"
 	"sigs.k8s.io/controller-runtime/pkg/reconcile"
 
-	v2 "github.com/fluxcd/helm-controller/api/v2"
-	intpredicates "github.com/fluxcd/helm-controller/internal/predicates"
+	v2 "github.com/werf/3p-helm-controller/api/v2"
+	intpredicates "github.com/werf/3p-helm-controller/internal/predicates"
 )
 
 type HelmReleaseReconcilerOptions struct {

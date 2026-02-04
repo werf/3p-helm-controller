@@ -55,30 +55,30 @@ import (
 	"github.com/fluxcd/pkg/runtime/logger"
 	"github.com/fluxcd/pkg/runtime/object"
 	"github.com/fluxcd/pkg/runtime/patch"
-	sourcev1 "github.com/fluxcd/source-controller/api/v1"
+	sourcev1 "github.com/werf/nelm-source-controller/api/v1"
 
 	"github.com/fluxcd/pkg/chartutil"
 
-	v2 "github.com/fluxcd/helm-controller/api/v2"
-	intacl "github.com/fluxcd/helm-controller/internal/acl"
-	"github.com/fluxcd/helm-controller/internal/action"
-	"github.com/fluxcd/helm-controller/internal/digest"
-	interrors "github.com/fluxcd/helm-controller/internal/errors"
-	"github.com/fluxcd/helm-controller/internal/features"
-	"github.com/fluxcd/helm-controller/internal/kube"
-	"github.com/fluxcd/helm-controller/internal/loader"
-	"github.com/fluxcd/helm-controller/internal/postrender"
-	intreconcile "github.com/fluxcd/helm-controller/internal/reconcile"
-	"github.com/fluxcd/helm-controller/internal/release"
+	v2 "github.com/werf/3p-helm-controller/api/v2"
+	intacl "github.com/werf/3p-helm-controller/internal/acl"
+	"github.com/werf/3p-helm-controller/internal/action"
+	"github.com/werf/3p-helm-controller/internal/digest"
+	interrors "github.com/werf/3p-helm-controller/internal/errors"
+	"github.com/werf/3p-helm-controller/internal/features"
+	"github.com/werf/3p-helm-controller/internal/kube"
+	"github.com/werf/3p-helm-controller/internal/loader"
+	"github.com/werf/3p-helm-controller/internal/postrender"
+	intreconcile "github.com/werf/3p-helm-controller/internal/reconcile"
+	"github.com/werf/3p-helm-controller/internal/release"
 )
 
-// +kubebuilder:rbac:groups=helm.toolkit.fluxcd.io,resources=helmreleases,verbs=get;list;watch;create;update;patch;delete
-// +kubebuilder:rbac:groups=helm.toolkit.fluxcd.io,resources=helmreleases/status,verbs=get;update;patch
-// +kubebuilder:rbac:groups=helm.toolkit.fluxcd.io,resources=helmreleases/finalizers,verbs=get;create;update;patch;delete
-// +kubebuilder:rbac:groups=source.toolkit.fluxcd.io,resources=helmcharts,verbs=get;list;watch
-// +kubebuilder:rbac:groups=source.toolkit.fluxcd.io,resources=helmcharts/status,verbs=get
-// +kubebuilder:rbac:groups=source.toolkit.fluxcd.io,resources=ocirepositories,verbs=get;list;watch
-// +kubebuilder:rbac:groups=source.toolkit.fluxcd.io,resources=ocirepositories/status,verbs=get
+// +kubebuilder:rbac:groups=helm.werf.io,resources=helmreleases,verbs=get;list;watch;create;update;patch;delete
+// +kubebuilder:rbac:groups=helm.werf.io,resources=helmreleases/status,verbs=get;update;patch
+// +kubebuilder:rbac:groups=helm.werf.io,resources=helmreleases/finalizers,verbs=get;create;update;patch;delete
+// +kubebuilder:rbac:groups=source.werf.io,resources=helmcharts,verbs=get;list;watch
+// +kubebuilder:rbac:groups=source.werf.io,resources=helmcharts/status,verbs=get
+// +kubebuilder:rbac:groups=source.werf.io,resources=ocirepositories,verbs=get;list;watch
+// +kubebuilder:rbac:groups=source.werf.io,resources=ocirepositories/status,verbs=get
 // +kubebuilder:rbac:groups="",resources=events,verbs=create;patch
 
 // HelmReleaseReconciler reconciles a HelmRelease object.

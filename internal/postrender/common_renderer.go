@@ -20,7 +20,7 @@ import (
 	"bytes"
 	"fmt"
 
-	v2 "github.com/fluxcd/helm-controller/api/v2"
+	v2 "github.com/werf/3p-helm-controller/api/v2"
 )
 
 type OriginLabels struct {

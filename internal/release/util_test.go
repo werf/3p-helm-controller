@@ -22,7 +22,7 @@ import (
 	. "github.com/onsi/gomega"
 	helmrelease "helm.sh/helm/v3/pkg/release"
 
-	"github.com/fluxcd/helm-controller/internal/testutil"
+	"github.com/werf/3p-helm-controller/internal/testutil"
 )
 
 func TestGetTestHooks(t *testing.T) {
