@@ -41,12 +41,12 @@ import (
 	"github.com/fluxcd/pkg/chartutil"
 	"github.com/fluxcd/pkg/runtime/conditions"
 
-	v2 "github.com/fluxcd/helm-controller/api/v2"
-	"github.com/fluxcd/helm-controller/internal/action"
-	"github.com/fluxcd/helm-controller/internal/digest"
-	"github.com/fluxcd/helm-controller/internal/release"
-	"github.com/fluxcd/helm-controller/internal/storage"
-	"github.com/fluxcd/helm-controller/internal/testutil"
+	v2 "github.com/werf/3p-helm-controller/api/v2"
+	"github.com/werf/3p-helm-controller/internal/action"
+	"github.com/werf/3p-helm-controller/internal/digest"
+	"github.com/werf/3p-helm-controller/internal/release"
+	"github.com/werf/3p-helm-controller/internal/storage"
+	"github.com/werf/3p-helm-controller/internal/testutil"
 )
 
 func TestInstall_Reconcile(t *testing.T) {

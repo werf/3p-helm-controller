@@ -39,8 +39,8 @@ import (
 	ssanormalize "github.com/fluxcd/pkg/ssa/normalize"
 	ssautil "github.com/fluxcd/pkg/ssa/utils"
 
-	v2 "github.com/fluxcd/helm-controller/api/v2"
-	"github.com/fluxcd/helm-controller/internal/diff"
+	v2 "github.com/werf/3p-helm-controller/api/v2"
+	"github.com/werf/3p-helm-controller/internal/diff"
 )
 
 // Diff returns a jsondiff.DiffSet of the changes between the state of the

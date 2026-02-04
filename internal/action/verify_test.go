@@ -29,10 +29,10 @@ import (
 	"helm.sh/helm/v3/pkg/storage/driver"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 
-	v2 "github.com/fluxcd/helm-controller/api/v2"
-	"github.com/fluxcd/helm-controller/internal/release"
-	"github.com/fluxcd/helm-controller/internal/storage"
-	"github.com/fluxcd/helm-controller/internal/testutil"
+	v2 "github.com/werf/3p-helm-controller/api/v2"
+	"github.com/werf/3p-helm-controller/internal/release"
+	"github.com/werf/3p-helm-controller/internal/storage"
+	"github.com/werf/3p-helm-controller/internal/testutil"
 )
 
 func TestReleaseTargetChanged(t *testing.T) {

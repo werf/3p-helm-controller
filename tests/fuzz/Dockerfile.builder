@@ -6,7 +6,7 @@ RUN wget https://go.dev/dl/go1.25.0.linux-amd64.tar.gz \
     && tar -C temp-go/ -xzf go1.25.0.linux-amd64.tar.gz \
     && mv temp-go/go/* /root/.go/
 
-ENV SRC=$GOPATH/src/github.com/fluxcd/helm-controller
+ENV SRC=$GOPATH/src/github.com/werf/3p-helm-controller
 ENV FLUX_CI=true
 
 COPY ./ $SRC

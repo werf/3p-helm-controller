@@ -27,7 +27,7 @@ import (
 	helper "github.com/fluxcd/pkg/runtime/controller"
 	"github.com/fluxcd/pkg/runtime/testenv"
 	"github.com/fluxcd/pkg/testserver"
-	sourcev1 "github.com/fluxcd/source-controller/api/v1"
+	sourcev1 "github.com/werf/nelm-source-controller/api/v1"
 	"go.uber.org/zap/zapcore"
 	"helm.sh/helm/v3/pkg/kube"
 	corev1 "k8s.io/api/core/v1"
@@ -40,8 +40,8 @@ import (
 	controllerLog "sigs.k8s.io/controller-runtime/pkg/log"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
-	v2 "github.com/fluxcd/helm-controller/api/v2"
-	"github.com/fluxcd/helm-controller/internal/controller"
+	v2 "github.com/werf/3p-helm-controller/api/v2"
+	"github.com/werf/3p-helm-controller/internal/controller"
 	// +kubebuilder:scaffold:imports
 )
 

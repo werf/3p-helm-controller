@@ -31,10 +31,10 @@ import (
 	"github.com/fluxcd/pkg/runtime/conditions"
 	"github.com/fluxcd/pkg/runtime/logger"
 
-	v2 "github.com/fluxcd/helm-controller/api/v2"
-	"github.com/fluxcd/helm-controller/internal/action"
-	"github.com/fluxcd/helm-controller/internal/release"
-	"github.com/fluxcd/helm-controller/internal/storage"
+	v2 "github.com/werf/3p-helm-controller/api/v2"
+	"github.com/werf/3p-helm-controller/internal/action"
+	"github.com/werf/3p-helm-controller/internal/release"
+	"github.com/werf/3p-helm-controller/internal/storage"
 )
 
 // Uninstall is an ActionReconciler which attempts to uninstall a Helm release

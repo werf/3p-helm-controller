@@ -21,8 +21,8 @@ limitations under the License.
 package v2beta1
 
 import (
-	"github.com/fluxcd/helm-controller/api/v2"
-	"github.com/fluxcd/helm-controller/api/v2beta2"
+	"github.com/werf/3p-helm-controller/api/v2"
+	"github.com/werf/3p-helm-controller/api/v2beta2"
 	"github.com/fluxcd/pkg/apis/kustomize"
 	"github.com/fluxcd/pkg/apis/meta"
 	"k8s.io/apiextensions-apiserver/pkg/apis/apiextensions/v1"

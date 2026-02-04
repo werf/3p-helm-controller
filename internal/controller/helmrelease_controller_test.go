@@ -53,17 +53,17 @@ import (
 	"github.com/fluxcd/pkg/runtime/conditions"
 	feathelper "github.com/fluxcd/pkg/runtime/features"
 	"github.com/fluxcd/pkg/runtime/patch"
-	sourcev1 "github.com/fluxcd/source-controller/api/v1"
+	sourcev1 "github.com/werf/nelm-source-controller/api/v1"
 
-	v2 "github.com/fluxcd/helm-controller/api/v2"
-	intacl "github.com/fluxcd/helm-controller/internal/acl"
-	"github.com/fluxcd/helm-controller/internal/action"
-	"github.com/fluxcd/helm-controller/internal/features"
-	"github.com/fluxcd/helm-controller/internal/kube"
-	"github.com/fluxcd/helm-controller/internal/postrender"
-	intreconcile "github.com/fluxcd/helm-controller/internal/reconcile"
-	"github.com/fluxcd/helm-controller/internal/release"
-	"github.com/fluxcd/helm-controller/internal/testutil"
+	v2 "github.com/werf/3p-helm-controller/api/v2"
+	intacl "github.com/werf/3p-helm-controller/internal/acl"
+	"github.com/werf/3p-helm-controller/internal/action"
+	"github.com/werf/3p-helm-controller/internal/features"
+	"github.com/werf/3p-helm-controller/internal/kube"
+	"github.com/werf/3p-helm-controller/internal/postrender"
+	intreconcile "github.com/werf/3p-helm-controller/internal/reconcile"
+	"github.com/werf/3p-helm-controller/internal/release"
+	"github.com/werf/3p-helm-controller/internal/testutil"
 )
 
 func TestHelmReleaseReconciler_reconcileRelease(t *testing.T) {

@@ -34,7 +34,7 @@ const (
 	HelmReleaseKind = "HelmRelease"
 	// HelmReleaseFinalizer is set on a HelmRelease when it is first handled by
 	// the controller, and removed when this object is deleted.
-	HelmReleaseFinalizer = "finalizers.fluxcd.io"
+	HelmReleaseFinalizer = "finalizers.werf.io"
 )
 
 const (

@@ -14,7 +14,7 @@ The following is an example of a HelmRelease which installs the
 
 ```yaml
 ---
-apiVersion: source.toolkit.fluxcd.io/v1beta2
+apiVersion: source.werf.io/v1beta2
 kind: HelmRepository
 metadata:
   name: podinfo
@@ -23,7 +23,7 @@ spec:
   interval: 5m
   url: https://stefanprodan.github.io/podinfo
 ---
-apiVersion: helm.toolkit.fluxcd.io/v2beta2
+apiVersion: helm.werf.io/v2beta2
 kind: HelmRelease
 metadata:
   name: podinfo
@@ -61,7 +61,7 @@ spec:
 In the above example:
 
 - A [HelmRepository](https://fluxcd.io/flux/components/source/helmrepositories/)
-  named `podinfo` is created, pointing to the Helm repository from which the 
+  named `podinfo` is created, pointing to the Helm repository from which the
   podinfo chart can be installed.
 - A HelmRelease named `podinfo` is created, that will create a [HelmChart](https://fluxcd.io/flux/components/source/helmcharts/) object
   from [the `.spec.chart`](#chart-template) and watch it for Artifact changes.
@@ -229,7 +229,7 @@ HelmRelease object.
 #### OCIRepository reference example
 
 ```yaml
-apiVersion: source.toolkit.fluxcd.io/v1beta2
+apiVersion: source.werf.io/v1beta2
 kind: OCIRepository
 metadata:
   name: podinfo
@@ -240,7 +240,7 @@ spec:
   ref:
     tag: 6.6.0
 ---
-apiVersion: helm.toolkit.fluxcd.io/v2beta2
+apiVersion: helm.werf.io/v2beta2
 kind: HelmRelease
 metadata:
   name: podinfo
@@ -258,7 +258,7 @@ spec:
 #### HelmChart reference example
 
 ```yaml
-apiVersion: source.toolkit.fluxcd.io/v1beta2
+apiVersion: source.werf.io/v1beta2
 kind: HelmChart
 metadata:
   name: podinfo
@@ -272,7 +272,7 @@ spec:
     name: podinfo
   version: '5.*'
 ---
-apiVersion: helm.toolkit.fluxcd.io/v2beta2
+apiVersion: helm.werf.io/v2beta2
 kind: HelmRelease
 metadata:
   name: podinfo
@@ -370,15 +370,15 @@ Defintions and the related controller must exist in the cluster.
 
 ```yaml
 ---
-apiVersion: helm.toolkit.fluxcd.io/v2beta2
+apiVersion: helm.werf.io/v2beta2
 kind: HelmRelease
 metadata:
   name: backend
   namespace: default
 spec:
-  # ...omitted for brevity   
+  # ...omitted for brevity
 ---
-apiVersion: helm.toolkit.fluxcd.io/v2beta2
+apiVersion: helm.werf.io/v2beta2
 kind: HelmRelease
 metadata:
   name: frontend
@@ -718,7 +718,7 @@ causes the selector to be more specific:
 
 - `group` (Optional): Matches the `.apiVersion` group of resources while
   offering support for regular expressions. For example, `apps`,
-  `helm.toolkit.fluxcd.io` or `.*.toolkit.fluxcd.io`.
+  `helm.werf.io` or `.*.werf.io`.
 - `version` (Optional): Matches the `.apiVersion` version of resources while
   offering support for regular expressions. For example, `v1`, `v2beta2` or
   `v2beta[\d]`.
@@ -740,7 +740,7 @@ causes the selector to be more specific:
 #### Ignore annotation
 
 To exclude certain resources from the comparison, they can be labeled or
-annotated with `helm.toolkit.fluxcd.io/driftDetection: disabled`. Using
+annotated with `helm.werf.io/driftDetection: disabled`. Using
 [post-renderers](#post-renderers), this can be applied to any resource
 rendered by Helm.
 
@@ -755,7 +755,7 @@ spec:
               name: my-app
             patch: |
               - op: add
-                path: /metadata/annotations/helm.toolkit.fluxcd.io~1driftDetection
+                path: /metadata/annotations/helm.werf.io~1driftDetection
                 value: disabled
 ```
 
@@ -819,7 +819,7 @@ stringData:
   value.yaml: |
     apiVersion: v1
     kind: Config
-    # ...omitted for brevity   
+    # ...omitted for brevity
 ```
 
 **Note:** The KubeConfig should be self-contained and not rely on binaries, the
@@ -861,7 +861,7 @@ Event), this is handled instantly outside the interval window.
 
 **Note:** The controller can be configured to apply a jitter to the interval in
 order to distribute the load more evenly when multiple HelmRelease objects are
-set up with the same interval. For more information, please refer to the 
+set up with the same interval. For more information, please refer to the
 [helm-controller configuration options](https://fluxcd.io/flux/components/helm/options/).
 
 ### Timeout
@@ -946,7 +946,7 @@ chart, you can set the `.spec.install.crds` and `.spec.upgrade.crds` policies to
 
 ```yaml
 ---
-apiVersion: helm.toolkit.fluxcd.io/v2beta2
+apiVersion: helm.werf.io/v2beta2
 kind: HelmRelease
 metadata:
   name: my-operator
@@ -1033,7 +1033,7 @@ The Service Account can then be referenced in the HelmRelease:
 
 ```yaml
 ---
-apiVersion: helm.toolkit.fluxcd.io/v2beta2
+apiVersion: helm.werf.io/v2beta2
 kind: HelmRelease
 metadata:
  name: podinfo
@@ -1107,7 +1107,7 @@ spec:
 ---
 # ... unrelated Cluster API objects omitted for brevity ...
 ---
-apiVersion: helm.toolkit.fluxcd.io/v2beta2
+apiVersion: helm.werf.io/v2beta2
 kind: HelmRelease
 metadata:
   name: kube-prometheus-stack
@@ -1147,7 +1147,7 @@ kubectl -n default create secret generic prod-kubeconfig \
 
 To manually tell the helm-controller to reconcile a HelmRelease outside the
 [specified interval window](#interval), it can be annotated with
-`reconcile.fluxcd.io/requestedAt: <arbitrary value>`.
+`reconcile.werf.io/requestedAt: <arbitrary value>`.
 
 Annotating the resource queues the HelmRelease for reconciliation if the
 `<arbitrary-value>` differs from the last value the controller acted on, as
@@ -1156,7 +1156,7 @@ reported in `.status.lastHandledReconcileAt`.
 Using `kubectl`:
 
 ```sh
-kubectl annotate --field-manager=flux-client-side-apply --overwrite helmrelease/<helmrelease-name> reconcile.fluxcd.io/requestedAt="$(date +%s)"
+kubectl annotate --field-manager=flux-client-side-apply --overwrite helmrelease/<helmrelease-name> reconcile.werf.io/requestedAt="$(date +%s)"
 ```
 
 Using `flux`:
@@ -1169,7 +1169,7 @@ flux reconcile helmrelease <helmrelease-name>
 
 To instruct the helm-controller to forcefully perform a Helm install or
 upgrade without making changes to the spec, it can be annotated with
-`reconcile.fluxcd.io/forceAt: <arbitrary value>` while simultaneously
+`reconcile.werf.io/forceAt: <arbitrary value>` while simultaneously
 [triggering a reconcile](#triggering-a-reconcile) with the same value.
 
 Annotating the resource forces a one-off Helm install or upgrade if the
@@ -1181,8 +1181,8 @@ Using `kubectl`:
 ```sh
 TOKEN="$(date +%s)"; \
 kubectl annotate --field-manager=flux-client-side-apply --overwrite helmrelease/<helmrelease-name> \
-"reconcile.fluxcd.io/requestedAt=$TOKEN" \
-"reconcile.fluxcd.io/forceAt=$TOKEN"
+"reconcile.werf.io/requestedAt=$TOKEN" \
+"reconcile.werf.io/forceAt=$TOKEN"
 ```
 
 Using `flux`:
@@ -1195,7 +1195,7 @@ flux reconcile helmrelease <helmrelease-name> --force
 
 To instruct the helm-controller to reset the number of retries while
 attempting to perform a Helm release, it can be annotated with
-`reconcile.fluxcd.io/resetAt: <arbitrary value>` while simultaneously
+`reconcile.werf.io/resetAt: <arbitrary value>` while simultaneously
 [triggering a reconcile](#triggering-a-reconcile) with the same value.
 
 Annotating the resource resets the failure counts on the object if the
@@ -1210,8 +1210,8 @@ Using `kubectl`:
 ```sh
 TOKEN="$(date +%s)"; \
 kubectl annotate --field-manager=flux-client-side-apply --overwrite helmrelease/<helmrelease-name> \
-"reconcile.fluxcd.io/requestedAt=$TOKEN" \
-"reconcile.fluxcd.io/resetAt=$TOKEN"
+"reconcile.werf.io/requestedAt=$TOKEN" \
+"reconcile.werf.io/resetAt=$TOKEN"
 ```
 
 Using `flux`:
@@ -1241,7 +1241,7 @@ In your YAML declaration:
 
 ```yaml
 ---
-apiVersion: helm.toolkit.fluxcd.io/v2beta2
+apiVersion: helm.werf.io/v2beta2
 kind: HelmRelease
 metadata:
   name: <helmrelease-name>
@@ -1267,7 +1267,7 @@ In your YAML declaration, comment out (or remove) the field:
 
 ```yaml
 ---
-apiVersion: helm.toolkit.fluxcd.io/v2beta2
+apiVersion: helm.werf.io/v2beta2
 kind: HelmRelease
 metadata:
   name: <helmrelease-name>
@@ -1405,7 +1405,7 @@ include the status of the tests which were run for each release.
 
 ```yaml
 ---
-apiVersion: helm.toolkit.fluxcd.io/v2beta2
+apiVersion: helm.werf.io/v2beta2
 kind: HelmRelease
 metadata:
   name: <release-name>
@@ -1666,7 +1666,7 @@ strategy for the HelmRelease.
 
 ### Last Handled Reconcile At
 
-The helm-controller reports the last `reconcile.fluxcd.io/requestedAt`
+The helm-controller reports the last `reconcile.werf.io/requestedAt`
 annotation value it acted on in the `.status.lastHandledReconcileAt` field.
 
 For practical information about this field, see
@@ -1674,7 +1674,7 @@ For practical information about this field, see
 
 ### Last Handled Force At
 
-The helm-controller reports the last `reconcile.fluxcd.io/forceAt`
+The helm-controller reports the last `reconcile.werf.io/forceAt`
 annotation value it acted on in the `.status.lastHandledForceAt` field.
 
 For practical information about this field, see
@@ -1682,7 +1682,7 @@ For practical information about this field, see
 
 ### Last Handled Reset At
 
-The helm-controller reports the last `reconcile.fluxcd.io/resetAt`
+The helm-controller reports the last `reconcile.werf.io/resetAt`
 annotation value it acted on in the `.status.lastHandledResetAt` field.
 
 For practical information about this field, see

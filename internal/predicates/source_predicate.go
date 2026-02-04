@@ -21,7 +21,7 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/event"
 	"sigs.k8s.io/controller-runtime/pkg/predicate"
 
-	sourcev1 "github.com/fluxcd/source-controller/api/v1"
+	sourcev1 "github.com/werf/nelm-source-controller/api/v1"
 )
 
 // SourceRevisionChangePredicate detects revision changes to the v1.Artifact of

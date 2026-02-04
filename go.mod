@@ -1,8 +1,8 @@
-module github.com/fluxcd/helm-controller
+module github.com/werf/3p-helm-controller
 
 go 1.25.0
 
-replace github.com/fluxcd/helm-controller/api => ./api
+replace github.com/werf/3p-helm-controller/api => ./api
 
 // Replace digest lib to master to gather access to BLAKE3.
 // xref: https://github.com/opencontainers/go-digest/pull/66
@@ -17,7 +17,6 @@ replace (
 require (
 	github.com/Masterminds/semver/v3 v3.4.0
 	github.com/fluxcd/cli-utils v0.36.0-flux.15
-	github.com/fluxcd/helm-controller/api v1.4.0
 	github.com/fluxcd/pkg/apis/acl v0.9.0
 	github.com/fluxcd/pkg/apis/event v0.21.0
 	github.com/fluxcd/pkg/apis/kustomize v1.14.0
@@ -28,7 +27,6 @@ require (
 	github.com/fluxcd/pkg/runtime v0.91.0
 	github.com/fluxcd/pkg/ssa v0.61.0
 	github.com/fluxcd/pkg/testserver v0.13.0
-	github.com/fluxcd/source-controller/api v1.7.2
 	github.com/go-logr/logr v1.4.3
 	github.com/google/cel-go v0.26.1
 	github.com/google/go-cmp v0.7.0
@@ -39,6 +37,8 @@ require (
 	github.com/opencontainers/go-digest/blake3 v0.0.0-20250116041648-1e56c6daea3b
 	github.com/spf13/pflag v1.0.10
 	github.com/wI2L/jsondiff v0.7.0
+	github.com/werf/3p-helm-controller/api v0.0.0-00010101000000-000000000000
+	github.com/werf/nelm-source-controller/api v0.0.0-20260204183556-44a151b58599
 	go.uber.org/zap v1.27.0
 	golang.org/x/text v0.31.0
 	helm.sh/helm/v3 v3.19.2

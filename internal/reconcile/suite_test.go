@@ -39,9 +39,9 @@ import (
 
 	"github.com/fluxcd/pkg/runtime/testenv"
 
-	sourcev1 "github.com/fluxcd/source-controller/api/v1"
+	sourcev1 "github.com/werf/nelm-source-controller/api/v1"
 
-	v2 "github.com/fluxcd/helm-controller/api/v2"
+	v2 "github.com/werf/3p-helm-controller/api/v2"
 )
 
 const testFieldManager = "helm-controller"

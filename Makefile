@@ -32,13 +32,13 @@ CRD_DEP_ROOT ?= $(BUILD_DIR)/config/crd/bases
 
 # Keep a record of the version of the downloaded source CRDs. It is used to
 # detect and download new CRDs when the SOURCE_VER changes.
-SOURCE_VER ?= $(shell go list -m all | grep github.com/fluxcd/source-controller/api | awk '{print $$2}')
+SOURCE_VER ?= $(shell go list -m all | grep github.com/werf/nelm-source-controller/api | awk '{print $$2}')
 SOURCE_CRD_VER = $(CRD_DEP_ROOT)/.src-crd-$(SOURCE_VER)
 
 # HelmChart source CRD.
-HELMCHART_SOURCE_CRD ?= $(CRD_DEP_ROOT)/source.toolkit.fluxcd.io_helmcharts.yaml
-OCIREPO_CRD ?= $(CRD_DEP_ROOT)/source.toolkit.fluxcd.io_ocirepositories.yaml
-EA_CRD ?= $(CRD_DEP_ROOT)/source.toolkit.fluxcd.io_externalartifacts.yaml
+HELMCHART_SOURCE_CRD ?= $(CRD_DEP_ROOT)/source.werf.io_helmcharts.yaml
+OCIREPO_CRD ?= $(CRD_DEP_ROOT)/source.werf.io_ocirepositories.yaml
+EA_CRD ?= $(CRD_DEP_ROOT)/source.werf.io_externalartifacts.yaml
 
 # API (doc) generation utilities
 CONTROLLER_GEN_VERSION ?= v0.19.0
@@ -70,20 +70,20 @@ uninstall: manifests
 
 # Deploy controller in the configured Kubernetes cluster in ~/.kube/config
 deploy: manifests
-	cd config/manager && kustomize edit set image fluxcd/helm-controller=${IMG}
+	cd config/manager && kustomize edit set image registry.werf.io/nelm/helm-controller=${IMG}
 	kustomize build config/default | kubectl apply -f -
 
 # Deploy controller dev image in the configured Kubernetes cluster in ~/.kube/config
 dev-deploy: manifests
 	mkdir -p config/dev && cp config/default/* config/dev
-	cd config/dev && kustomize edit set image fluxcd/helm-controller=${IMG}
+	cd config/dev && kustomize edit set image registry.werf.io/nelm/helm-controller=${IMG}
 	kustomize build config/dev | kubectl apply -f -
 	rm -rf config/dev
 
 # Delete dev deployment and CRDs
 dev-cleanup: manifests
 	mkdir -p config/dev && cp config/default/* config/dev
-	cd config/dev && kustomize edit set image fluxcd/helm-controller=${IMG}
+	cd config/dev && kustomize edit set image registry.werf.io/nelm/helm-controller=${IMG}
 	kustomize build config/dev | kubectl delete -f -
 	rm -rf config/dev
 
@@ -143,13 +143,13 @@ $(SOURCE_CRD_VER):
 	touch $(SOURCE_CRD_VER)
 
 $(HELMCHART_SOURCE_CRD):
-	curl -s https://raw.githubusercontent.com/fluxcd/source-controller/${SOURCE_VER}/config/crd/bases/source.toolkit.fluxcd.io_helmcharts.yaml > $(HELMCHART_SOURCE_CRD)
+	curl -s https://raw.githubusercontent.com/werf/nelm-source-controller/${SOURCE_VER}/config/crd/bases/source.werf.io_helmcharts.yaml > $(HELMCHART_SOURCE_CRD)
 
 $(OCIREPO_CRD):
-	curl -s https://raw.githubusercontent.com/fluxcd/source-controller/${SOURCE_VER}/config/crd/bases/source.toolkit.fluxcd.io_ocirepositories.yaml -o $(OCIREPO_CRD)
+	curl -s https://raw.githubusercontent.com/werf/3p-helm-controller/${SOURCE_VER}/config/crd/bases/source.werf.io_ocirepositories.yaml -o $(OCIREPO_CRD)
 
 $(EA_CRD):
-	curl -s https://raw.githubusercontent.com/fluxcd/source-controller/${SOURCE_VER}/config/crd/bases/source.toolkit.fluxcd.io_externalartifacts.yaml -o $(EA_CRD)
+	curl -s https://raw.githubusercontent.com/werf/nelm-source-controller/${SOURCE_VER}/config/crd/bases/source.werf.io_externalartifacts.yaml -o $(EA_CRD)
 
 # Download the CRDs the controller depends on
 download-crd-deps: $(SOURCE_CRD_VER) $(HELMCHART_SOURCE_CRD) $(OCIREPO_CRD) $(EA_CRD)
@@ -217,7 +217,7 @@ fuzz-smoketest: fuzz-build
 		bash -c "/runner.sh"
 
 # Run fuzz tests for the duration set in FUZZ_TIME.
-fuzz-native: 
+fuzz-native:
 	KUBEBUILDER_ASSETS=$(KUBEBUILDER_ASSETS) \
 	FUZZ_TIME=$(FUZZ_TIME) \
 		./tests/fuzz/native_go_run.sh

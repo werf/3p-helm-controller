@@ -733,7 +733,7 @@ to create a new `HelmChart` resource with the given spec.
 
 The `spec.chart.spec.sourceRef` is a reference to an object managed by
 [source-controller](https://github.com/fluxcd/source-controller). When the source
-[revision](https://pkg.go.dev/github.com/fluxcd/source-controller/api/v1beta2#Artifact)
+[revision](https://pkg.go.dev/github.com/werf/nelm-source-controller/api/v1beta2#Artifact)
 changes, it generates a Kubernetes event that triggers a new release.
 
 Supported source types:
@@ -830,10 +830,10 @@ set up with the same interval. For more information, please refer to the
 [helm-controller configuration options](https://fluxcd.io/flux/components/helm/options/).
 
 The reconciler can be told to reconcile the `HelmRelease` outside of the specified interval
-by annotating the object with a `reconcile.fluxcd.io/requestedAt` annotation. For example:
+by annotating the object with a `reconcile.werf.io/requestedAt` annotation. For example:
 
 ```bash
-kubectl annotate --overwrite helmrelease/podinfo reconcile.fluxcd.io/requestedAt="$(date +%s)"
+kubectl annotate --overwrite helmrelease/podinfo reconcile.werf.io/requestedAt="$(date +%s)"
 ```
 
 Reconciliation can be suspended by setting `spec.suspend` to `true`.
@@ -846,8 +846,8 @@ List all Kubernetes objects reconciled from a HelmRelease:
 
 ```sh
 kubectl get all --all-namespaces \
--l=helm.toolkit.fluxcd.io/name="<HelmRelease name>" \
--l=helm.toolkit.fluxcd.io/namespace="<HelmRelease namespace>"
+-l=helm.werf.io/name="<HelmRelease name>" \
+-l=helm.werf.io/namespace="<HelmRelease namespace>"
 ```
 
 ### Disabling resource waiting
@@ -855,7 +855,7 @@ kubectl get all --all-namespaces \
 For install, upgrade, rollback, and uninstall actions resource waiting is
 enabled by default, but can be disabled by setting `spec.<action>.disableWait`.
 
-Waiting for jobs to complete is enabled by default, 
+Waiting for jobs to complete is enabled by default,
 but can be disabled by setting `spec.<action>.disableWaitForJobs`.
 
 ### `HelmRelease` dependencies
@@ -871,7 +871,7 @@ Assuming two `HelmRelease` resources:
 - `frontend` - contains the frontend of the application and relies on the backend
 
 ```yaml
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
+apiVersion: helm.werf.io/v2beta1
 kind: HelmRelease
 metadata:
   name: backend
@@ -900,7 +900,7 @@ spec:
         cpu: 100m
         memory: 64Mi
 ---
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
+apiVersion: helm.werf.io/v2beta1
 kind: HelmRelease
 metadata:
   name: frontend
@@ -950,7 +950,7 @@ can be overridden per Helm action by setting `spec.install.remediation.ignoreTes
 or `spec.upgrade.remediation.ignoreTestFailures`.
 
 ```yaml
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
+apiVersion: helm.werf.io/v2beta1
 kind: HelmRelease
 metadata:
   name: podinfo
@@ -995,7 +995,7 @@ One can also opt-in to remediation of the last failure (when no retries remain) 
 to true if at least one retry is configured.
 
 ```yaml
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
+apiVersion: helm.werf.io/v2beta1
 kind: HelmRelease
 metadata:
   name: podinfo
@@ -1078,7 +1078,7 @@ subjects:
 Create a `HelmRelease` that prevents altering the cluster state outside of the `webapp` namespace:
 
 ```yaml
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
+apiVersion: helm.werf.io/v2beta1
 kind: HelmRelease
 metadata:
   name: podinfo
@@ -1162,7 +1162,7 @@ spec:
 ---
 # ... unrelated Cluster API objects omitted for brevity ...
 ---
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
+apiVersion: helm.werf.io/v2beta1
 kind: HelmRelease
 metadata:
   name: kube-prometheus-stack
@@ -1220,7 +1220,7 @@ which adds a [toleration](https://kubernetes.io/docs/concepts/scheduling-evictio
 to the Helm rendered output:
 
 ```yaml
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
+apiVersion: helm.werf.io/v2beta1
 kind: HelmRelease
 metadata:
   name: metrics-server
@@ -1303,7 +1303,7 @@ The following CRD upgrade policies are supported:
 **Example**:
 
 ```yaml
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
+apiVersion: helm.werf.io/v2beta1
 kind: HelmRelease
 metadata:
   name: my-operator
@@ -1345,11 +1345,11 @@ feature full.
 ### Excluding resources from drift detection
 
 The drift detection feature can be configured to exclude certain resources from the comparison
-by labeling or annotating them with `helm.toolkit.fluxcd.io/driftDetection: disabled`. Using
+by labeling or annotating them with `helm.werf.io/driftDetection: disabled`. Using
 [post-renderers](#post-renderers), this can be applied to any resource rendered by Helm.
 
 ```yaml
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
+apiVersion: helm.werf.io/v2beta1
 kind: HelmRelease
 metadata:
   name: app
@@ -1364,7 +1364,7 @@ spec:
               name: my-app
             patch: |
               - op: add
-                path: /metadata/annotations/helm.toolkit.fluxcd.io~1driftDetection
+                path: /metadata/annotations/helm.werf.io~1driftDetection
                 value: disabled
 ```
 
@@ -1378,7 +1378,7 @@ more fitting solution than ignoring the object in full.
 
 ```yaml
 ---
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
+apiVersion: helm.werf.io/v2beta1
 kind: HelmRelease
 metadata:
   name: kube-prometheus-stack
@@ -1406,7 +1406,7 @@ spec:
               name: kube-prometheus-stack-admission
             patch: |
               - op: add
-                path: /metadata/annotations/helm.toolkit.fluxcd.io~1driftDetection
+                path: /metadata/annotations/helm.werf.io~1driftDetection
                 value: disabled
           - target:
               # Ignore these objects from Flux diff as they are mutated at apply time but not
@@ -1414,7 +1414,7 @@ spec:
               kind: PrometheusRule
             patch: |
               - op: add
-                path: /metadata/annotations/helm.toolkit.fluxcd.io~1driftDetection
+                path: /metadata/annotations/helm.werf.io~1driftDetection
                 value: disabled
 ```
 

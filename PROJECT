@@ -1,5 +1,5 @@
-domain: toolkit.fluxcd.io
-repo: github.com/fluxcd/helm-controller
+domain: werf.io
+repo: github.com/werf/3p-helm-controller
 resources:
 - group: helm
   kind: HelmRelease
