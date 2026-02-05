@@ -20,9 +20,9 @@ import (
 	"errors"
 	"sort"
 
-	eventv1 "github.com/fluxcd/pkg/apis/event/v1beta1"
-	"github.com/fluxcd/pkg/apis/meta"
-	"github.com/fluxcd/pkg/runtime/conditions"
+	eventv1 "github.com/werf/3p-fluxcd-pkg/apis/event/v1beta1"
+	"github.com/werf/3p-fluxcd-pkg/apis/meta"
+	"github.com/werf/3p-fluxcd-pkg/runtime/conditions"
 	helmrelease "helm.sh/helm/v3/pkg/release"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 

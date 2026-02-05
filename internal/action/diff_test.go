@@ -40,11 +40,11 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	"sigs.k8s.io/controller-runtime/pkg/envtest"
 
-	"github.com/fluxcd/pkg/apis/kustomize"
-	"github.com/fluxcd/pkg/ssa"
-	"github.com/fluxcd/pkg/ssa/jsondiff"
-	ssanormalize "github.com/fluxcd/pkg/ssa/normalize"
-	ssautil "github.com/fluxcd/pkg/ssa/utils"
+	"github.com/werf/3p-fluxcd-pkg/apis/kustomize"
+	"github.com/werf/3p-fluxcd-pkg/ssa"
+	"github.com/werf/3p-fluxcd-pkg/ssa/jsondiff"
+	ssanormalize "github.com/werf/3p-fluxcd-pkg/ssa/normalize"
+	ssautil "github.com/werf/3p-fluxcd-pkg/ssa/utils"
 
 	v2 "github.com/werf/3p-helm-controller/api/v2"
 	"github.com/werf/3p-helm-controller/internal/kube"

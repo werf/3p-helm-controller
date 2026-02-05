@@ -23,7 +23,7 @@ import (
 	"k8s.io/apimachinery/pkg/apis/meta/v1/unstructured"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 
-	"github.com/fluxcd/pkg/ssa/jsondiff"
+	"github.com/werf/3p-fluxcd-pkg/ssa/jsondiff"
 )
 
 func TestSummarizeDiffSet(t *testing.T) {

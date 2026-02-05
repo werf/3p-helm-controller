@@ -32,11 +32,11 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/client-go/tools/record"
 
-	eventv1 "github.com/fluxcd/pkg/apis/event/v1beta1"
-	"github.com/fluxcd/pkg/apis/meta"
-	"github.com/fluxcd/pkg/runtime/conditions"
+	eventv1 "github.com/werf/3p-fluxcd-pkg/apis/event/v1beta1"
+	"github.com/werf/3p-fluxcd-pkg/apis/meta"
+	"github.com/werf/3p-fluxcd-pkg/runtime/conditions"
 
-	"github.com/fluxcd/pkg/chartutil"
+	"github.com/werf/3p-fluxcd-pkg/chartutil"
 
 	v2 "github.com/werf/3p-helm-controller/api/v2"
 	"github.com/werf/3p-helm-controller/internal/action"

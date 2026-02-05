@@ -21,7 +21,7 @@ import (
 	"helm.sh/helm/v3/pkg/chart"
 	"helm.sh/helm/v3/pkg/chartutil"
 
-	intchartutil "github.com/fluxcd/pkg/chartutil"
+	intchartutil "github.com/werf/3p-fluxcd-pkg/chartutil"
 	v2 "github.com/werf/3p-helm-controller/api/v2"
 )
 

@@ -25,9 +25,9 @@ import (
 	"helm.sh/helm/v3/pkg/chart"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 
-	"github.com/fluxcd/pkg/apis/kustomize"
-	"github.com/fluxcd/pkg/apis/meta"
-	"github.com/fluxcd/pkg/runtime/conditions"
+	"github.com/werf/3p-fluxcd-pkg/apis/kustomize"
+	"github.com/werf/3p-fluxcd-pkg/apis/meta"
+	"github.com/werf/3p-fluxcd-pkg/runtime/conditions"
 
 	v2 "github.com/werf/3p-helm-controller/api/v2"
 	"github.com/werf/3p-helm-controller/internal/action"

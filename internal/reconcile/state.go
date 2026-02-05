@@ -21,9 +21,9 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/fluxcd/pkg/apis/meta"
-	"github.com/fluxcd/pkg/runtime/conditions"
-	"github.com/fluxcd/pkg/ssa/jsondiff"
+	"github.com/werf/3p-fluxcd-pkg/apis/meta"
+	"github.com/werf/3p-fluxcd-pkg/runtime/conditions"
+	"github.com/werf/3p-fluxcd-pkg/ssa/jsondiff"
 	"helm.sh/helm/v3/pkg/kube"
 	helmrelease "helm.sh/helm/v3/pkg/release"
 	ctrl "sigs.k8s.io/controller-runtime"

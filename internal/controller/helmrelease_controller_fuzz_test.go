@@ -32,7 +32,7 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/client/fake"
 	"sigs.k8s.io/yaml"
 
-	"github.com/fluxcd/pkg/runtime/patch"
+	"github.com/werf/3p-fluxcd-pkg/runtime/patch"
 	sourcev1 "github.com/werf/nelm-source-controller/api/v1"
 
 	v2 "github.com/werf/3p-helm-controller/api/v2"

@@ -29,11 +29,11 @@ import (
 	"k8s.io/client-go/tools/record"
 	ctrl "sigs.k8s.io/controller-runtime"
 
-	"github.com/fluxcd/pkg/apis/meta"
-	"github.com/fluxcd/pkg/runtime/conditions"
-	"github.com/fluxcd/pkg/runtime/logger"
-	"github.com/fluxcd/pkg/runtime/patch"
-	"github.com/fluxcd/pkg/ssa/jsondiff"
+	"github.com/werf/3p-fluxcd-pkg/apis/meta"
+	"github.com/werf/3p-fluxcd-pkg/runtime/conditions"
+	"github.com/werf/3p-fluxcd-pkg/runtime/logger"
+	"github.com/werf/3p-fluxcd-pkg/runtime/patch"
+	"github.com/werf/3p-fluxcd-pkg/ssa/jsondiff"
 
 	v2 "github.com/werf/3p-helm-controller/api/v2"
 	"github.com/werf/3p-helm-controller/internal/action"
@@ -590,7 +590,7 @@ func replaceCondition(obj *v2.HelmRelease, target string, replacement string, re
 		// LastTransitionTime set here. If the state of the new condition
 		// changes an existing condition, the LastTransitionTime is updated to
 		// the current time.
-		// Refer https://github.com/fluxcd/pkg/blob/runtime/v0.43.0/runtime/conditions/setter.go#L54-L55.
+		// Refer https://github.com/werf/3p-fluxcd-pkg/blob/runtime/v0.43.0/runtime/conditions/setter.go#L54-L55.
 		conditions.Delete(obj, replacement)
 		c.Status = status
 		c.Type = replacement

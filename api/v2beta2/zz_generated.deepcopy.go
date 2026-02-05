@@ -21,10 +21,9 @@ limitations under the License.
 package v2beta2
 
 import (
-	"github.com/fluxcd/pkg/apis/kustomize"
-	"github.com/fluxcd/pkg/apis/meta"
-	"github.com/werf/3p-helm-controller/api/v2"
-	"k8s.io/apiextensions-apiserver/pkg/apis/apiextensions/v1"
+	"github.com/werf/3p-fluxcd-pkg/apis/kustomize"
+	"github.com/werf/3p-fluxcd-pkg/apis/meta"
+	v2 "github.com/werf/3p-helm-controller/api/v2"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	runtime "k8s.io/apimachinery/pkg/runtime"
 )

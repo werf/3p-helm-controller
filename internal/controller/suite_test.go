@@ -29,8 +29,8 @@ import (
 	"k8s.io/client-go/rest"
 	ctrl "sigs.k8s.io/controller-runtime"
 
-	"github.com/fluxcd/pkg/runtime/testenv"
-	"github.com/fluxcd/pkg/testserver"
+	"github.com/werf/3p-fluxcd-pkg/runtime/testenv"
+	"github.com/werf/3p-fluxcd-pkg/testserver"
 	sourcev1 "github.com/werf/nelm-source-controller/api/v1"
 
 	v2 "github.com/werf/3p-helm-controller/api/v2"

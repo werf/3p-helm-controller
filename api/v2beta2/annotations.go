@@ -16,7 +16,7 @@ limitations under the License.
 
 package v2beta2
 
-import "github.com/fluxcd/pkg/apis/meta"
+import "github.com/werf/3p-fluxcd-pkg/apis/meta"
 
 const (
 	// ForceRequestAnnotation is the annotation used for triggering a one-off forced

@@ -23,7 +23,7 @@ import (
 	"k8s.io/client-go/rest"
 	"k8s.io/client-go/tools/clientcmd"
 
-	"github.com/fluxcd/pkg/runtime/client"
+	"github.com/werf/3p-fluxcd-pkg/runtime/client"
 )
 
 const (

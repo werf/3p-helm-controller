@@ -17,7 +17,7 @@ limitations under the License.
 package predicates
 
 import (
-	"github.com/fluxcd/pkg/runtime/conditions"
+	"github.com/werf/3p-fluxcd-pkg/runtime/conditions"
 	"sigs.k8s.io/controller-runtime/pkg/event"
 	"sigs.k8s.io/controller-runtime/pkg/predicate"
 

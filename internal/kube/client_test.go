@@ -24,7 +24,7 @@ import (
 	"k8s.io/client-go/rest"
 	ctrl "sigs.k8s.io/controller-runtime"
 
-	"github.com/fluxcd/pkg/runtime/client"
+	"github.com/werf/3p-fluxcd-pkg/runtime/client"
 )
 
 func TestWithNamespace(t *testing.T) {

@@ -26,7 +26,7 @@ import (
 	kustypes "sigs.k8s.io/kustomize/api/types"
 	"sigs.k8s.io/kustomize/kyaml/filesys"
 
-	"github.com/fluxcd/pkg/apis/kustomize"
+	"github.com/werf/3p-fluxcd-pkg/apis/kustomize"
 )
 
 // Kustomize is a Helm post-render plugin that runs Kustomize.

@@ -29,7 +29,7 @@ import (
 	"k8s.io/client-go/tools/clientcmd"
 	ctrl "sigs.k8s.io/controller-runtime"
 
-	"github.com/fluxcd/pkg/runtime/client"
+	"github.com/werf/3p-fluxcd-pkg/runtime/client"
 )
 
 // Option is a function that configures an MemoryRESTClientGetter.

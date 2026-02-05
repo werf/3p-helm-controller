@@ -22,7 +22,7 @@ import (
 	"k8s.io/apimachinery/pkg/types"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 
-	"github.com/fluxcd/pkg/runtime/acl"
+	"github.com/werf/3p-fluxcd-pkg/runtime/acl"
 )
 
 var (

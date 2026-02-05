@@ -17,8 +17,9 @@ limitations under the License.
 package kube
 
 import (
-	"github.com/fluxcd/pkg/runtime/client"
 	"testing"
+
+	"github.com/werf/3p-fluxcd-pkg/runtime/client"
 
 	. "github.com/onsi/gomega"
 	corev1 "k8s.io/api/core/v1"

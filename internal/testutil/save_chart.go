@@ -28,7 +28,7 @@ import (
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/util/rand"
 
-	"github.com/fluxcd/pkg/apis/meta"
+	"github.com/werf/3p-fluxcd-pkg/apis/meta"
 )
 
 // SaveChart saves the given chart to the given directory, and returns the

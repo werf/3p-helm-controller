@@ -122,7 +122,7 @@ Improvements:
 - [RFC-0012] Add support for ExternalArtifact revision with digest
   [#1296](https://github.com/fluxcd/helm-controller/pull/1296)
 - Remove deprecated `helm.toolkit.fluxcd.io/v2beta1` API group
-  [#1280](https://github.com/fluxcd/helm-controller/pull/1280) 
+  [#1280](https://github.com/fluxcd/helm-controller/pull/1280)
 - Add RetryOnFailure lifecycle management strategy
   [#1281](https://github.com/fluxcd/helm-controller/pull/1281)
 - Add CEL expressions for dependency readiness checks with `readyExpr` field
@@ -389,7 +389,7 @@ Deprecated fields have been removed from the `HelmRelease` API:
 
 1. Before upgrading the controller, ensure that the `HelmRelease` v2beta2 manifests stored in Git
    are not using the deprecated fields. Search for `valuesFile` and replace it with `valuesFiles`,
-   replace `patchesJson6902` and `patchesStrategicMerge` with `patches`. 
+   replace `patchesJson6902` and `patchesStrategicMerge` with `patches`.
    Commit and push the changes to the Git repository, then wait for Flux to reconcile the changes.
 2. Upgrade the controller and CRDs to v1.0.0 on the cluster using Flux v2.3 release.
    Note that helm-controller v1.0.0 requires source-controller v1.3.0.
@@ -1162,7 +1162,7 @@ match the default value we set in the Deployment for
 shutdown correctly.
 
 Fixes:
-- Align `graceful-shutdown-timeout` with `terminationGracePeriodSeconds` 
+- Align `graceful-shutdown-timeout` with `terminationGracePeriodSeconds`
   [#584](https://github.com/fluxcd/helm-controller/pull/584)
 
 ## 0.28.0
@@ -1307,11 +1307,11 @@ The API now enforces validation to `Spec.ValuesFrom` subfields:
 The new image contains updates to patch alpine CVEs.
 
 Improvements:
-- Enable RecoverPanic option on reconciler 
+- Enable RecoverPanic option on reconciler
   [#516](https://github.com/fluxcd/helm-controller/pull/516)
-- Add validation to TargetPath and ValuesKey 
+- Add validation to TargetPath and ValuesKey
   [#520](https://github.com/fluxcd/helm-controller/pull/520)
-- Update dependencies 
+- Update dependencies
   [#521](https://github.com/fluxcd/helm-controller/pull/521)
 
 ## 0.22.2
@@ -1425,13 +1425,13 @@ Improvements:
 
 **Release date:** 2022-04-05
 
-This prerelease adds some breaking changes around the use and handling of kubeconfigs 
-files for remote reconciliations. It updates documentation and progress other 
+This prerelease adds some breaking changes around the use and handling of kubeconfigs
+files for remote reconciliations. It updates documentation and progress other
 housekeeping tasks.
 
 **Breaking changes**:
 
-- Use of file-based KubeConfig options are now permanently disabled (e.g. 
+- Use of file-based KubeConfig options are now permanently disabled (e.g.
 `TLSClientConfig.CAFile`, `TLSClientConfig.KeyFile`, `TLSClientConfig.CertFile`
 and `BearerTokenFile`). The drive behind the change was to discourage
 insecure practices of mounting Kubernetes tokens inside the controller's container file system.
@@ -1469,7 +1469,7 @@ Improvements:
 
 This prerelease ensures the API objects fully adhere to newly introduced
 interfaces, allowing them to work in combination with e.g. the
-[`conditions`](https://pkg.go.dev/github.com/fluxcd/pkg/runtime@v0.13.2/conditions)
+[`conditions`](https://pkg.go.dev/github.com/werf/3p-fluxcd-pkg/runtime@v0.13.2/conditions)
 package.
 
 In addition, it ensures (Kubernetes) Event annotations are prefixed with the
@@ -1502,7 +1502,7 @@ In addition, various dependencies where updated to their latest versions, and
 the code base was refactored to align with the `fluxcd/pkg/runtime` v0.13
 release.
 
-The source-controller dependency was updated to version `v0.22` which 
+The source-controller dependency was updated to version `v0.22` which
 introduces API `v1beta2` and deprecates `v1beta1`.
 
 Improvements:
@@ -1894,7 +1894,7 @@ Supported policies:
   deleted.
 * `CreateReplace`: New CRDs are created, existing CRDs are updated
   (replaced) but not deleted.
-  
+
 In case `CreateReplace` is used as an `Upgrade` policy, Custom Resource
 Definitions are applied by the controller before a Helm upgrade is
 performed. On rollbacks, the Custom Resource Definitions are left
@@ -2295,7 +2295,7 @@ The `spec` of the `HelmRelease` has a multitude of breaking changes:
   adding e.g. a `spec.chart.metadata` field in a future iteration to be
   able to define annotations and/or labels.
 * The `spec.chart.name` field has been renamed to `spec.chart.spec.chart`,
-  and now accepts a chart name (for charts from `HelmRepository` 
+  and now accepts a chart name (for charts from `HelmRepository`
   sources) or a path (for charts from `GitRepository` sources), to follow
   changes made to the `HelmChart` API.
 * The `spec.chart.spec.sourceRef.kind` is now mandatory, and accepts both
@@ -2341,7 +2341,7 @@ value was not allowed.
 
 **Release date:** 2020-08-18
 
-This prerelease upgrades the `github.com/fluxcd/pkg/*` dependencies to
+This prerelease upgrades the `github.com/werf/3p-fluxcd-pkg/*` dependencies to
 dedicated versioned modules, and makes the `api` package available as
 a dedicated versioned module.
 

@@ -115,8 +115,8 @@ Kubernetes meta/v1.Duration
 <td>
 <code>kubeConfig</code><br>
 <em>
-<a href="https://godoc.org/github.com/fluxcd/pkg/apis/meta#KubeConfigReference">
-github.com/fluxcd/pkg/apis/meta.KubeConfigReference
+<a href="https://godoc.org/github.com/werf/3p-fluxcd-pkg/apis/meta#KubeConfigReference">
+github.com/werf/3p-fluxcd-pkg/apis/meta.KubeConfigReference
 </a>
 </em>
 </td>
@@ -187,8 +187,8 @@ Defaults to the namespace of the HelmRelease.</p>
 <td>
 <code>dependsOn</code><br>
 <em>
-<a href="https://godoc.org/github.com/fluxcd/pkg/apis/meta#NamespacedObjectReference">
-[]github.com/fluxcd/pkg/apis/meta.NamespacedObjectReference
+<a href="https://godoc.org/github.com/werf/3p-fluxcd-pkg/apis/meta#NamespacedObjectReference">
+[]github.com/werf/3p-fluxcd-pkg/apis/meta.NamespacedObjectReference
 </a>
 </em>
 </td>
@@ -412,7 +412,7 @@ HelmReleaseStatus
 (<code>string</code> alias)</h3>
 <p>
 (<em>Appears on:</em>
-<a href="#helm.werf.io/v2beta2.Install">Install</a>, 
+<a href="#helm.werf.io/v2beta2.Install">Install</a>,
 <a href="#helm.werf.io/v2beta2.Upgrade">Upgrade</a>)
 </p>
 <p>CRDsPolicy defines the install/upgrade approach to use for CRDs when
@@ -1076,8 +1076,8 @@ string
 <td>
 <code>secretRef</code><br>
 <em>
-<a href="https://godoc.org/github.com/fluxcd/pkg/apis/meta#LocalObjectReference">
-github.com/fluxcd/pkg/apis/meta.LocalObjectReference
+<a href="https://godoc.org/github.com/werf/3p-fluxcd-pkg/apis/meta#LocalObjectReference">
+github.com/werf/3p-fluxcd-pkg/apis/meta.LocalObjectReference
 </a>
 </em>
 </td>
@@ -1155,8 +1155,8 @@ Kubernetes meta/v1.Duration
 <td>
 <code>kubeConfig</code><br>
 <em>
-<a href="https://godoc.org/github.com/fluxcd/pkg/apis/meta#KubeConfigReference">
-github.com/fluxcd/pkg/apis/meta.KubeConfigReference
+<a href="https://godoc.org/github.com/werf/3p-fluxcd-pkg/apis/meta#KubeConfigReference">
+github.com/werf/3p-fluxcd-pkg/apis/meta.KubeConfigReference
 </a>
 </em>
 </td>
@@ -1227,8 +1227,8 @@ Defaults to the namespace of the HelmRelease.</p>
 <td>
 <code>dependsOn</code><br>
 <em>
-<a href="https://godoc.org/github.com/fluxcd/pkg/apis/meta#NamespacedObjectReference">
-[]github.com/fluxcd/pkg/apis/meta.NamespacedObjectReference
+<a href="https://godoc.org/github.com/werf/3p-fluxcd-pkg/apis/meta#NamespacedObjectReference">
+[]github.com/werf/3p-fluxcd-pkg/apis/meta.NamespacedObjectReference
 </a>
 </em>
 </td>
@@ -1695,8 +1695,8 @@ value, so a change of the annotation value can be detected.</p>
 <td>
 <code>ReconcileRequestStatus</code><br>
 <em>
-<a href="https://godoc.org/github.com/fluxcd/pkg/apis/meta#ReconcileRequestStatus">
-github.com/fluxcd/pkg/apis/meta.ReconcileRequestStatus
+<a href="https://godoc.org/github.com/werf/3p-fluxcd-pkg/apis/meta#ReconcileRequestStatus">
+github.com/werf/3p-fluxcd-pkg/apis/meta.ReconcileRequestStatus
 </a>
 </em>
 </td>
@@ -1744,8 +1744,8 @@ consideration in a Kubernetes object.</p>
 <td>
 <code>target</code><br>
 <em>
-<a href="https://godoc.org/github.com/fluxcd/pkg/apis/kustomize#Selector">
-github.com/fluxcd/pkg/apis/kustomize.Selector
+<a href="https://godoc.org/github.com/werf/3p-fluxcd-pkg/apis/kustomize#Selector">
+github.com/werf/3p-fluxcd-pkg/apis/kustomize.Selector
 </a>
 </em>
 </td>
@@ -2014,8 +2014,8 @@ no retries remain. Defaults to &lsquo;false&rsquo;.</p>
 <td>
 <code>patches</code><br>
 <em>
-<a href="https://godoc.org/github.com/fluxcd/pkg/apis/kustomize#Patch">
-[]github.com/fluxcd/pkg/apis/kustomize.Patch
+<a href="https://godoc.org/github.com/werf/3p-fluxcd-pkg/apis/kustomize#Patch">
+[]github.com/werf/3p-fluxcd-pkg/apis/kustomize.Patch
 </a>
 </em>
 </td>
@@ -2044,8 +2044,8 @@ Deprecated: use Patches instead.</p>
 <td>
 <code>patchesJson6902</code><br>
 <em>
-<a href="https://godoc.org/github.com/fluxcd/pkg/apis/kustomize#JSON6902Patch">
-[]github.com/fluxcd/pkg/apis/kustomize.JSON6902Patch
+<a href="https://godoc.org/github.com/werf/3p-fluxcd-pkg/apis/kustomize#JSON6902Patch">
+[]github.com/werf/3p-fluxcd-pkg/apis/kustomize.JSON6902Patch
 </a>
 </em>
 </td>
@@ -2059,8 +2059,8 @@ Deprecated: use Patches instead.</p>
 <td>
 <code>images</code><br>
 <em>
-<a href="https://godoc.org/github.com/fluxcd/pkg/apis/kustomize#Image">
-[]github.com/fluxcd/pkg/apis/kustomize.Image
+<a href="https://godoc.org/github.com/werf/3p-fluxcd-pkg/apis/kustomize#Image">
+[]github.com/werf/3p-fluxcd-pkg/apis/kustomize.Image
 </a>
 </em>
 </td>

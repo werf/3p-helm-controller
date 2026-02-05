@@ -25,8 +25,8 @@ import (
 	"k8s.io/apimachinery/pkg/types"
 	"sigs.k8s.io/yaml"
 
-	"github.com/fluxcd/pkg/apis/kustomize"
-	"github.com/fluxcd/pkg/apis/meta"
+	"github.com/werf/3p-fluxcd-pkg/apis/kustomize"
+	"github.com/werf/3p-fluxcd-pkg/apis/meta"
 )
 
 const (

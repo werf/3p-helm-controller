@@ -23,7 +23,7 @@ import (
 	. "github.com/onsi/gomega"
 	"sigs.k8s.io/yaml"
 
-	"github.com/fluxcd/pkg/apis/kustomize"
+	"github.com/werf/3p-fluxcd-pkg/apis/kustomize"
 
 	v2 "github.com/werf/3p-helm-controller/api/v2"
 )

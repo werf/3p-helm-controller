@@ -23,7 +23,7 @@ import (
 	extjsondiff "github.com/wI2L/jsondiff"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 
-	"github.com/fluxcd/pkg/ssa/jsondiff"
+	"github.com/werf/3p-fluxcd-pkg/ssa/jsondiff"
 )
 
 // DefaultDiffTypes is the default set of jsondiff.DiffType types to include in

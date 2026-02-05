@@ -26,7 +26,7 @@ import (
 	corev1 "k8s.io/api/core/v1"
 	"k8s.io/client-go/tools/record"
 
-	"github.com/fluxcd/pkg/runtime/conditions"
+	"github.com/werf/3p-fluxcd-pkg/runtime/conditions"
 
 	v2 "github.com/werf/3p-helm-controller/api/v2"
 	"github.com/werf/3p-helm-controller/internal/action"

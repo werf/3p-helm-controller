@@ -36,10 +36,10 @@ import (
 	"k8s.io/utils/ptr"
 	"sigs.k8s.io/controller-runtime/pkg/client/fake"
 
-	"github.com/fluxcd/pkg/apis/meta"
-	"github.com/fluxcd/pkg/runtime/conditions"
-	"github.com/fluxcd/pkg/runtime/patch"
-	"github.com/fluxcd/pkg/ssa/jsondiff"
+	"github.com/werf/3p-fluxcd-pkg/apis/meta"
+	"github.com/werf/3p-fluxcd-pkg/runtime/conditions"
+	"github.com/werf/3p-fluxcd-pkg/runtime/patch"
+	"github.com/werf/3p-fluxcd-pkg/ssa/jsondiff"
 
 	v2 "github.com/werf/3p-helm-controller/api/v2"
 	"github.com/werf/3p-helm-controller/internal/action"

@@ -27,7 +27,7 @@ import (
 
 	helmdriver "helm.sh/helm/v3/pkg/storage/driver"
 
-	"github.com/fluxcd/pkg/chartutil"
+	"github.com/werf/3p-fluxcd-pkg/chartutil"
 	v2 "github.com/werf/3p-helm-controller/api/v2"
 	"github.com/werf/3p-helm-controller/internal/release"
 )

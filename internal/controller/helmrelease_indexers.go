@@ -21,7 +21,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/fluxcd/pkg/runtime/conditions"
+	"github.com/werf/3p-fluxcd-pkg/runtime/conditions"
 	sourcev1 "github.com/werf/nelm-source-controller/api/v1"
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/client"

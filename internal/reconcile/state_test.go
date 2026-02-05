@@ -30,10 +30,10 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/apis/meta/v1/unstructured"
 
-	"github.com/fluxcd/pkg/apis/meta"
-	"github.com/fluxcd/pkg/ssa/jsondiff"
-	ssanormalize "github.com/fluxcd/pkg/ssa/normalize"
-	ssautil "github.com/fluxcd/pkg/ssa/utils"
+	"github.com/werf/3p-fluxcd-pkg/apis/meta"
+	"github.com/werf/3p-fluxcd-pkg/ssa/jsondiff"
+	ssanormalize "github.com/werf/3p-fluxcd-pkg/ssa/normalize"
+	ssautil "github.com/werf/3p-fluxcd-pkg/ssa/utils"
 
 	v2 "github.com/werf/3p-helm-controller/api/v2"
 	"github.com/werf/3p-helm-controller/internal/action"

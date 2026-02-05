@@ -37,7 +37,7 @@ import (
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/manager"
 
-	"github.com/fluxcd/pkg/runtime/testenv"
+	"github.com/werf/3p-fluxcd-pkg/runtime/testenv"
 
 	sourcev1 "github.com/werf/nelm-source-controller/api/v1"
 

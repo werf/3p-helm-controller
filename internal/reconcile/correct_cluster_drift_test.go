@@ -29,10 +29,10 @@ import (
 	apierrutil "k8s.io/apimachinery/pkg/util/errors"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 
-	"github.com/fluxcd/pkg/apis/meta"
-	"github.com/fluxcd/pkg/runtime/conditions"
-	"github.com/fluxcd/pkg/ssa"
-	"github.com/fluxcd/pkg/ssa/jsondiff"
+	"github.com/werf/3p-fluxcd-pkg/apis/meta"
+	"github.com/werf/3p-fluxcd-pkg/runtime/conditions"
+	"github.com/werf/3p-fluxcd-pkg/ssa"
+	"github.com/werf/3p-fluxcd-pkg/ssa/jsondiff"
 
 	v2 "github.com/werf/3p-helm-controller/api/v2"
 	"github.com/werf/3p-helm-controller/internal/action"

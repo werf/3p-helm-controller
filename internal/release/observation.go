@@ -25,7 +25,7 @@ import (
 	helmrelease "helm.sh/helm/v3/pkg/release"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 
-	"github.com/fluxcd/pkg/chartutil"
+	"github.com/werf/3p-fluxcd-pkg/chartutil"
 	v2 "github.com/werf/3p-helm-controller/api/v2"
 	"github.com/werf/3p-helm-controller/internal/digest"
 )

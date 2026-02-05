@@ -20,7 +20,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/fluxcd/pkg/runtime/predicates"
+	"github.com/werf/3p-fluxcd-pkg/runtime/predicates"
 	sourcev1 "github.com/werf/nelm-source-controller/api/v1"
 	corev1 "k8s.io/api/core/v1"
 	"k8s.io/client-go/util/workqueue"

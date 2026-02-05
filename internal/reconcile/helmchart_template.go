@@ -30,8 +30,8 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	"sigs.k8s.io/controller-runtime/pkg/client/apiutil"
 
-	eventv1 "github.com/fluxcd/pkg/apis/event/v1beta1"
-	"github.com/fluxcd/pkg/ssa"
+	eventv1 "github.com/werf/3p-fluxcd-pkg/apis/event/v1beta1"
+	"github.com/werf/3p-fluxcd-pkg/ssa"
 	sourcev1 "github.com/werf/nelm-source-controller/api/v1"
 
 	v2 "github.com/werf/3p-helm-controller/api/v2"

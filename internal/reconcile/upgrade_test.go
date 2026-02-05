@@ -36,10 +36,10 @@ import (
 	"k8s.io/client-go/tools/record"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 
-	eventv1 "github.com/fluxcd/pkg/apis/event/v1beta1"
-	"github.com/fluxcd/pkg/apis/meta"
-	"github.com/fluxcd/pkg/chartutil"
-	"github.com/fluxcd/pkg/runtime/conditions"
+	eventv1 "github.com/werf/3p-fluxcd-pkg/apis/event/v1beta1"
+	"github.com/werf/3p-fluxcd-pkg/apis/meta"
+	"github.com/werf/3p-fluxcd-pkg/chartutil"
+	"github.com/werf/3p-fluxcd-pkg/runtime/conditions"
 
 	v2 "github.com/werf/3p-helm-controller/api/v2"
 	"github.com/werf/3p-helm-controller/internal/action"
